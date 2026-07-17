@@ -1,15 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap');
 
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Raleway', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: url('images/bg.jpg') no-repeat center center fixed;
-  background-size: cover;
+  min-height: 100vh;
+  
   color: #5c4f4d;
+  font-weight: 300;
+  letter-spacing: 0.035em;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.3) 42%,
+    rgba(191, 146, 140, 0.62) 100%
+  );
 }
 
 .wrap {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 320px;
   margin: 0 auto;
@@ -21,37 +38,17 @@ body {
   margin-bottom: 20px;
 }
 
-.photo {
-  height: 100px;
-  width: 100%;
-}
-
-.img {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  background: url("images/logo.png") center / cover no-repeat;
+.brand-logo {
+  display: block;
+  width: 240px;
+  height: auto;
   margin: 0 auto;
-  border: solid 5px #ffffff;
-}
-
-.profile_name {
-  font-weight: 700;
-  display: block;
-  margin: 4px 0;
-  padding-top: 25px;
-  font-size: 25px;
-}
-
-.desc {
-  display: block;
-  font-size: 14px;
 }
 
 .at {
   font-size: 18px;
   display: block;
-  padding-top: 10px;
+  padding-top: 4px;
 }
 
 .my-button {
@@ -77,7 +74,7 @@ body {
 
 /* CTA ULTRA DESTACADO */
 .cta-button {
-  font-weight: 700;
+  font-weight: 500;
   background: linear-gradient(270deg, #ffeeee, #ffffff, #ffeeee);
   background-size: 600% 600%;
   animation: gradientMove 5s ease infinite, pulse 2.2s ease-in-out infinite;
