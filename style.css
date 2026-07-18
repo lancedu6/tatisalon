@@ -1,137 +1,416 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap');
 
+
+* {
+  box-sizing: border-box;
+}
+
+
 body {
+
   font-family: 'Raleway', Arial, sans-serif;
+
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  background: #bf928c;
-  color: #5c4f4d;
-  font-weight: 300;
-  letter-spacing: 0.035em;
+
+  min-height: 100dvh;
+
+  background:#141312;
+
+  color:#e8ddd6;
+
+  font-weight:300;
+
+  letter-spacing:.035em;
+  background: radial-gradient(circle at top, rgba(177, 145, 122, .20), transparent 45%), linear-gradient(180deg, #1f1b19 0%, #181514 40%, #141312 100%);
+  overflow:hidden;
+
 }
+
+
+/* Fondo */
 
 body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.7) 0%,
-    rgba(255, 255, 255, 0.3) 42%,
-    rgba(191, 146, 140, 0.62) 100%
-  );
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(177,145,122,.20),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      #1f1b19 0%,
+      #181514 40%,
+      #141312 100%
+    );
+
 }
+
+
+
+/* CONTENEDOR */
+
 
 .wrap {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-  padding-top: 30px;
+
+  position:relative;
+
+  z-index:1;
+
+  width:calc(100% - 40px);
+
+  max-width:320px;
+
+  min-height:100dvh;
+
+  margin:auto;
+
+  padding:30px 0 20px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
 }
+
+
+
+/* PERFIL */
+
 
 .profile {
-  text-align: center;
-  margin-bottom: 20px;
+
+  text-align:center;
+
+  margin-bottom:30px;
+
 }
+
 
 .brand-logo {
-  display: block;
-  width: 240px;
-  height: auto;
-  margin: 0 auto;
+
+  display:block;
+
+  width:min(220px,70vw);
+
+  height:auto;
+
+  margin:auto;
+
 }
+
 
 .at {
-  font-size: 18px;
-  display: block;
-  padding-top: 4px;
+
+  display:block;
+
+  padding-top:10px;
+
+  font-size:15px;
+
+  color:rgba(255,255,255,.72);
+
+  letter-spacing:2px;
+
 }
+
+
+
+/* BOTONES */
+
+
+.links {
+
+  width:100%;
+
+}
+
+
 
 .my-button {
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 14px;
-  display: block;
-  font-size: 22px;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.25s ease;
+
+  width:100%;
+
+  border-radius:16px;
+
+  padding:15px 18px;
+
+  margin-bottom:14px;
+
+  display:block;
+
+  font-size:18px;
+
+  text-decoration:none;
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:.28s ease;
+
+  font-weight:400;
+
 }
 
-.icon-pull-right {
-  float: right;
-  padding-top: 2px;
+
+
+.my-button:hover {
+
+  transform:translateY(-2px);
+
 }
+
 
 .my-button:active {
-  transform: scale(0.95);
+
+  transform:scale(.97);
+
 }
 
-/* CTA ULTRA DESTACADO */
-.cta-button {
-  font-weight: 500;
-  background: linear-gradient(270deg, #ffeeee, #ffffff, #ffeeee);
-  background-size: 600% 600%;
-  animation: gradientMove 5s ease infinite, pulse 2.2s ease-in-out infinite;
-  color: #000;
-  border: none;
-  box-shadow: 0 0 0 rgba(255, 240, 240, 0.6);
+
+
+.icon-pull-right {
+
+  float:right;
+
+  padding-top:2px;
+
+  font-size:20px;
+
 }
+
+
+
+/* CTA WHATSAPP */
+
+
+.cta-button {
+
+  font-weight:500;
+
+  color:#2f2723;
+
+  background:
+  linear-gradient(
+    270deg,
+    #d5b8a2,
+    #f7ede5,
+    #d5b8a2
+  );
+
+  background-size:600% 600%;
+
+  animation:
+    gradientMove 5s ease infinite,
+    pulse 2.2s ease-in-out infinite;
+
+  box-shadow:
+  0 10px 35px rgba(194,160,135,.25);
+
+}
+
+
 
 .cta-button::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  linear-gradient(
     120deg,
     transparent 30%,
-    rgba(255,255,255,0.8) 50%,
+    rgba(255,255,255,.8) 50%,
     transparent 70%
   );
-  transform: translateX(-100%);
-  animation: shine 2.8s infinite;
+
+  transform:translateX(-100%);
+
+  animation:shine 2.8s infinite;
+
 }
+
+
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+
+0%{
+background-position:0% 50%;
 }
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 203, 203, 0.9); }
-  70% { box-shadow: 0 0 0 14px rgba(248, 213, 213, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(246, 199, 199, 0); }
+
+0%{
+box-shadow:0 0 0 0 rgba(212,185,163,.55);
 }
+
+70%{
+box-shadow:0 0 0 18px rgba(212,185,163,0);
+}
+
+100%{
+box-shadow:0 0 0 0 rgba(212,185,163,0);
+}
+
+}
+
+
 
 @keyframes shine {
-  0% { transform: translateX(-100%); }
-  60% { transform: translateX(120%); }
-  100% { transform: translateX(120%); }
+
+0%{
+transform:translateX(-100%);
 }
 
-/* GLASSMORPHISM – BOTONES SECUNDARIOS */
-.glass-button {
-  font-weight: 400;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  color: #3d3d3d;
+60%{
+transform:translateX(120%);
 }
+
+100%{
+transform:translateX(120%);
+}
+
+}
+
+
+
+/* BOTONES REDES */
+
+
+.glass-button {
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.35),
+
+inset 0 1px 0 rgba(255,255,255,.05);
+
+
+color:#f1ebe6;
+
+}
+
+
 
 .glass-button:hover {
-  background: rgba(255, 255, 255, 0.35);
+
+background:rgba(255,255,255,.08);
+
+border-color:rgba(214,188,170,.30);
+
 }
 
+
+
+/* ICONOS */
+
+
+.glass-button .fab {
+
+color:#c6bba6;
+
+}
+
+
+
+/* FOOTER */
+
+
 .copy {
-  text-align: center;
-  font-size: 12px;
-  margin-bottom: 20px;
+
+text-align:center;
+
+font-size:12px;
+
+margin-top:10px;
+
+color:rgba(255,255,255,.45);
+
+letter-spacing:2px;
+
+}
+
+
+
+/* CELULARES PEQUEÑOS */
+
+
+@media(max-height:700px){
+
+
+.wrap{
+
+padding-top:15px;
+
+}
+
+
+.profile{
+
+margin-bottom:18px;
+
+}
+
+
+.brand-logo{
+
+width:180px;
+
+}
+
+
+.my-button{
+
+
+margin-bottom:10px;
+
+font-size:17px;
+
+}
+
+
+.copy{
+
+margin-top:5px;
+
+}
+
+
 }
