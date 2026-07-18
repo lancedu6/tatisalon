@@ -5,10 +5,11 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  
-  color: #5c4f4d;
+  background: #141312;
+  color: #e8ddd6;
   font-weight: 300;
   letter-spacing: 0.035em;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -16,71 +17,89 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.7) 0%,
-    rgba(255, 255, 255, 0.3) 42%,
-    rgba(191, 146, 140, 0.62) 100%
-  );
+  background:
+    radial-gradient(circle at top, rgba(177, 145, 122, .20), transparent 45%),
+    linear-gradient(
+      180deg,
+      #1f1b19 0%,
+      #181514 40%,
+      #141312 100%
+    );
 }
 
 .wrap {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 320px;
+  max-width: 360px;
   margin: 0 auto;
-  padding-top: 30px;
+  padding: 55px 22px 40px;
 }
 
 .profile {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 42px;
 }
 
 .brand-logo {
   display: block;
-  width: 240px;
+  width: 220px;
   height: auto;
   margin: 0 auto;
 }
 
 .at {
-  font-size: 18px;
   display: block;
-  padding-top: 4px;
+  padding-top: 12px;
+  font-size: 17px;
+  color: rgba(255, 255, 255, .72);
+  letter-spacing: 2px;
 }
 
 .my-button {
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 14px;
+  border-radius: 16px;
+  padding: 17px 22px;
+  margin-bottom: 18px;
   display: block;
-  font-size: 22px;
+  font-size: 20px;
   text-decoration: none;
   position: relative;
   overflow: hidden;
-  transition: transform 0.25s ease;
+  transition: .28s ease;
+  font-weight: 400;
+}
+
+.my-button:hover {
+  transform: translateY(-2px);
+}
+
+.my-button:active {
+  transform: scale(.97);
 }
 
 .icon-pull-right {
   float: right;
   padding-top: 2px;
+  font-size: 21px;
 }
 
-.my-button:active {
-  transform: scale(0.95);
-}
+/* BOTÓN CTA */
 
-/* CTA ULTRA DESTACADO */
 .cta-button {
   font-weight: 500;
-  background: linear-gradient(270deg, #ffeeee, #ffffff, #ffeeee);
+  background: linear-gradient(
+    270deg,
+    #d5b8a2,
+    #f7ede5,
+    #d5b8a2
+  );
   background-size: 600% 600%;
-  animation: gradientMove 5s ease infinite, pulse 2.2s ease-in-out infinite;
-  color: #000;
+  animation:
+    gradientMove 5s ease infinite,
+    pulse 2.2s ease-in-out infinite;
+  color: #2f2723;
   border: none;
-  box-shadow: 0 0 0 rgba(255, 240, 240, 0.6);
+  box-shadow: 0 10px 35px rgba(194, 160, 135, .25);
 }
 
 .cta-button::after {
@@ -90,7 +109,7 @@ body::before {
   background: linear-gradient(
     120deg,
     transparent 30%,
-    rgba(255,255,255,0.8) 50%,
+    rgba(255, 255, 255, .8) 50%,
     transparent 70%
   );
   transform: translateX(-100%);
@@ -98,40 +117,82 @@ body::before {
 }
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 203, 203, 0.9); }
-  70% { box-shadow: 0 0 0 14px rgba(248, 213, 213, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(246, 199, 199, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 185, 163, .55);
+  }
+
+  70% {
+    box-shadow: 0 0 0 18px rgba(212, 185, 163, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 185, 163, 0);
+  }
 }
 
 @keyframes shine {
-  0% { transform: translateX(-100%); }
-  60% { transform: translateX(120%); }
-  100% { transform: translateX(120%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  60% {
+    transform: translateX(120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
 }
 
-/* GLASSMORPHISM – BOTONES SECUNDARIOS */
+/* BOTONES */
+
 .glass-button {
   font-weight: 400;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  color: #3d3d3d;
+  background: rgba(255, 255, 255, .05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, .08);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, .35),
+    inset 0 1px 0 rgba(255, 255, 255, .05);
+  color: #f1ebe6;
 }
 
 .glass-button:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(214, 188, 170, .30);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, .42),
+    inset 0 1px 0 rgba(255, 255, 255, .08);
 }
+
+/* ICONOS */
+
+.glass-button .fab {
+  color: #c6bba6;
+}
+
+/* FOOTER */
 
 .copy {
   text-align: center;
   font-size: 12px;
-  margin-bottom: 20px;
+  margin-top: 26px;
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, .45);
+  letter-spacing: 2px;
 }
